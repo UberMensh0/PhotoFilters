@@ -71,6 +71,7 @@ public class Filters {
     }
 
     public static BufferedImage blur(BufferedImage image) {
+        BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
 
         int width = image.getWidth();
         int height = image.getHeight();
@@ -107,7 +108,8 @@ public class Filters {
                         }
                     }
                 }
-                BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
+
+
 
 
                 int averageRed = (int)(totalRed / pixelCount);
@@ -116,16 +118,15 @@ public class Filters {
 
 
                 Color blurredColor = new Color(averageRed, averageGreen, averageBlue);
-                image.setRGB(x, y, blurredColor.getRGB());
+                newImage.setRGB(x, y, blurredColor.getRGB());
             }
         }
 
-        BufferedImage newImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
+
         return newImage;
     }
-
-
 }
+
 
 
 
